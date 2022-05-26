@@ -1,10 +1,10 @@
 import './App.css';
-import TestModal from './components/TestModal';
+import TestTippy from './components/TestTippy';
 
 function App() {
   return (
     <div className='App'>
-      <TestModal />
+      <TestTippy />
     </div>
   );
 }
