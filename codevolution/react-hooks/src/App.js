@@ -1,10 +1,18 @@
+import React from 'react';
 import './App.css';
-import DataFetching from './components/useEffect/DataFetching';
+import ComponentC from './components/useContext/ComponentC';
+
+export const UserContext = React.createContext();
+export const AgeContext = React.createContext();
 
 function App() {
   return (
     <div className='App'>
-      <DataFetching />
+      <UserContext.Provider value={'Doyu'}>
+        <AgeContext.Provider value={30}>
+          <ComponentC />
+        </AgeContext.Provider>
+      </UserContext.Provider>
     </div>
   );
 }
