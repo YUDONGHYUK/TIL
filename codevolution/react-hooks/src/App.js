@@ -1,13 +1,11 @@
 import React from 'react';
-import DataFetchingOne from './components/useReducer/DataFetchingOne';
-import DataFetchingTwo from './components/useReducer/DataFetchingTwo';
+import ParentComponent from './components/useCallback/ParentComponent';
 import './App.css';
 
 function App() {
   return (
     <div className='App'>
-      {/* <DataFetchingOne /> */}
-      <DataFetchingTwo />
+      <ParentComponent />
     </div>
   );
 }
