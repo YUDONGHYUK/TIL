@@ -14,6 +14,8 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:jsx-a11y/recommended',
+    'prettier',
+    'plugin:prettier/recommended',
   ],
   // rules 섹션에서는 몇 가지 사용자 정의 규칙이 추가되어 있다.
   rules: {
@@ -30,4 +32,4 @@ module.exports = {
       version: 'detect', // React 버전이 자동으로 감지되도록 설정
     },
   },
-};
+}
