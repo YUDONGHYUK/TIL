@@ -4,6 +4,7 @@ import LOGO from './logo.svg';
 import { ClickCounter } from './ClickCounter';
 
 export const App = () => {
+  const name = 'Doyu';
   return (
     <>
       <h1>
