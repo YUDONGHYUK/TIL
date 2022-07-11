@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+// import Center from '../Center/Center';
 
 export default {
   // title: 'Form/control/Button',
@@ -8,6 +9,13 @@ export default {
   args: {
     children: 'Button',
   },
+  // decorators: [
+  //   (Story) => (
+  //     <Center>
+  //       <Story />
+  //     </Center>
+  //   ),
+  // ],
 };
 
 export const Primary = () => <Button variant='primary'>Primary</Button>;
