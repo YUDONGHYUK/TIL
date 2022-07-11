@@ -20,7 +20,7 @@ export const Danger = Template.bind({});
 Danger.args = {
   colorScheme: 'red',
   children: 'Danger',
-  onClick: () => console.log('click?'),
+  onClick: () => console.log('click : ', process.env.STORYBOOK_THEME), // 개발자 도구 콘솔에 표시하기
 };
 
 // 기존 코드
