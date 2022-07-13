@@ -1,7 +1,19 @@
+import Head from 'next/head';
 import Footer from '../components/Footer';
 
 function About() {
-  return <h1 className='content'>About</h1>;
+  return (
+    <>
+      <Head>
+        <title>About Doyu</title>
+        <meta
+          name='description'
+          content='Free tutorials on web development'
+        ></meta>
+      </Head>
+      <h1 className='content'>About</h1>;
+    </>
+  );
 }
 
 export default About;
