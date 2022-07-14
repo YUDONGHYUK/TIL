@@ -12,7 +12,7 @@ function PetsPage() {
             <Image
               src={`/${path}.jpg`}
               placeholder='blur'
-              blurDataURL={`/${path}.jpg`}
+              blurDataURL={`/${path}.jpg`} // 동적 이미지에 블러 처리
               alt='pet'
               width='280'
               height='420'
