@@ -1,9 +1,27 @@
-const BUY_CAKE = 'BUY_CAKE';
+const CAKE_ORDERED = 'CAKE_ORDERED';
 
-// action creator -> return the action
-function buyCake() {
+function orderCake() {
   return {
-    type: BUY_CAKE,
-    info: 'First redux action',
+    type: CAKE_ORDERED,
+    quantity: 1,
   };
 }
+
+const initialState = {
+  numOfCakes: 10,
+  // anotherProperty: 0,    <- 예시를 위한 state 값(삭제))
+};
+
+// (previoursState, action) => newState
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case CAKE_ORDERED:
+      return {
+        ...state,
+        numOfCakes: state.numOfCakes - 1,
+      };
+    default:
+      return state;
+  }
+};
