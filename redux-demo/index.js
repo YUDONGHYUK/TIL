@@ -1,3 +1,6 @@
+const redux = require('redux');
+const createStore = redux.createStore;
+
 const CAKE_ORDERED = 'CAKE_ORDERED';
 
 function orderCake() {
@@ -9,7 +12,6 @@ function orderCake() {
 
 const initialState = {
   numOfCakes: 10,
-  // anotherProperty: 0,    <- 예시를 위한 state 값(삭제))
 };
 
 // (previoursState, action) => newState
@@ -25,3 +27,24 @@ const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+const store = createStore(reducer);
+// since we have not performed any state transitions yet.
+// getState should effectively give us the initial state of our application.
+console.log('Initial state ', store.getState());
+
+const unsubscribe = store.subscribe(() =>
+  console.log('Update state ', store.getState())
+);
+
+store.dispatch({
+  type: CAKE_ORDERED,
+  quantity: 1,
+});
+store.dispatch(orderCake());
+store.dispatch(orderCake());
+
+unsubscribe();
+
+store.dispatch(orderCake());
+store.dispatch(orderCake());
