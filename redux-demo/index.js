@@ -2,11 +2,19 @@ const redux = require('redux');
 const createStore = redux.createStore;
 
 const CAKE_ORDERED = 'CAKE_ORDERED';
+const CAKE_RESTOCKED = 'CAKE_RESTOCKED';
 
 function orderCake() {
   return {
     type: CAKE_ORDERED,
-    quantity: 1,
+    payload: 1,
+  };
+}
+
+function restockCake(qty = 1) {
+  return {
+    type: CAKE_RESTOCKED,
+    payload: qty,
   };
 }
 
@@ -23,28 +31,26 @@ const reducer = (state = initialState, action) => {
         ...state,
         numOfCakes: state.numOfCakes - 1,
       };
+    case CAKE_RESTOCKED:
+      return {
+        ...state,
+        numOfCakes: state.numOfCakes + action.payload,
+      };
     default:
       return state;
   }
 };
 
 const store = createStore(reducer);
-// since we have not performed any state transitions yet.
-// getState should effectively give us the initial state of our application.
 console.log('Initial state ', store.getState());
 
 const unsubscribe = store.subscribe(() =>
   console.log('Update state ', store.getState())
 );
 
-store.dispatch({
-  type: CAKE_ORDERED,
-  quantity: 1,
-});
 store.dispatch(orderCake());
 store.dispatch(orderCake());
+store.dispatch(orderCake());
+store.dispatch(restockCake(3));
 
 unsubscribe();
-
-store.dispatch(orderCake());
-store.dispatch(orderCake());
