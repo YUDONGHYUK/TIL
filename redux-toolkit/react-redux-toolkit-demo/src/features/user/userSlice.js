@@ -1,8 +1,6 @@
-// const createSlice = require('@reduxjs/toolkit').createSlice;
-// const createAsyncThunk = require('@reduxjs/toolkit').createAsyncThunk;
-// const axios = require('axios');
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+const createSlice = require('@reduxjs/toolkit').createSlice;
+const createAsyncThunk = require('@reduxjs/toolkit').createAsyncThunk;
+const axios = require('axios');
 
 initialState = {
   loading: false,
@@ -11,7 +9,7 @@ initialState = {
 };
 
 // Generated pending, fulfilled and rejected action types
-export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
+const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
   return axios
     .get('https://jsonplaceholder.typicode.com/users')
     .then((response) => response.data.map((user) => user.id));
@@ -37,6 +35,5 @@ const userSlice = createSlice({
   },
 });
 
-// module.exports = userSlice.reducer;
-// module.exports.fetchUsers = fetchUsers;
-export default userSlice.reducer;
+module.exports = userSlice.reducer;
+module.exports.fetchUsers = fetchUsers;
