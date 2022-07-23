@@ -1,16 +1,23 @@
-// DUMMY_EVENTS에서 isFeatured가 true인 값만 표시
-
 import EventList from '../components/events/event-list';
-import { getFeaturedEvents } from '../dummy-data';
+import { getFeaturedEvents } from '../helpers/api-util';
 
-function HomePage() {
-  const featuredEvents = getFeaturedEvents();
-
+function HomePage({ featuredEvents }) {
   return (
     <div>
       <EventList items={featuredEvents} />
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const featuredEvents = await getFeaturedEvents();
+
+  return {
+    props: {
+      featuredEvents,
+    },
+    revalidate: 1800,
+  };
 }
 
 export default HomePage;
