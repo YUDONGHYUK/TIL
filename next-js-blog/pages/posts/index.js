@@ -1,9 +1,20 @@
+import Head from 'next/head';
 import AllPosts from '../../components/posts/all-posts';
 import { getAllPosts } from '../../lib/posts-utils';
 
 function AllPostsPage({ posts }) {
-  console.log(posts);
-  return <AllPosts posts={posts} />;
+  return (
+    <>
+      <Head>
+        <title>All My Posts</title>
+        <meta
+          name='description'
+          content='A list of all programming-related posts!'
+        />
+      </Head>
+      <AllPosts posts={posts} />;
+    </>
+  );
 }
 
 export async function getStaticProps() {
