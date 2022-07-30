@@ -17,19 +17,18 @@ async function handler(req, res) {
     }
 
     const newMessage = { email, name, message };
+    const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_clustername}.ma04y.mongodb.net/?retryWrites=true&w=majority`;
     let client;
 
     try {
       console.log('try');
-      client = await MongoClient.connect(
-        `mongodb+srv://doyu:${process.env.DATABASE_ACCESS_PASSWORD}@cluster0.ma04y.mongodb.net/?retryWrites=true&w=majority`
-      );
+      client = await MongoClient.connect(connectionString);
     } catch (error) {
       res.status(500).json({ message: 'Could not connect to database' });
       return;
     }
 
-    const db = client.db('next-blog');
+    const db = client.db(`${process.env.mongodb_database}`);
 
     try {
       const result = await db.collection('message').insertOne(newMessage);

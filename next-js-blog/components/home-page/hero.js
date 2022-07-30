@@ -12,7 +12,7 @@ function Hero() {
           height={300}
         />
       </div>
-      <h1>Hi, I'm Doyu</h1>
+      <h1>Hi, I&apos;m Doyu</h1>
       <p>
         I blog about web development - especially fronted frameworks like React
       </p>
