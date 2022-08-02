@@ -1,19 +1,18 @@
 import { useEffect } from 'react';
-import { useSession, signIn } from 'next-auth/react';
+import { getSession, useSession } from 'next-auth/react';
 import ProfileForm from './profile-form';
 import styles from './user-profile.module.css';
 
 function UserProfile() {
-  const { data: session, status } = useSession();
-  console.log(status);
+  // const { data: session, status } = useSession();
 
-  useEffect(() => {
-    if (status === 'unauthenticated') window.location.href = '/auth';
-  }, [status]);
+  // useEffect(() => {
+  //   if (status === 'unauthenticated') window.location.href = '/auth';
+  // }, [status]);
 
-  if (status === 'loading' || !session) {
-    return <p className={styles.profile}>Loading...</p>;
-  }
+  // if (status === 'loading' || !session) {
+  //   return <p className={styles.profile}>Loading...</p>;
+  // }
 
   return (
     <section className={styles.profile}>
