@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+nav {
+  background-color: aliceblue;
+  padding: 16px 32px;
+}
+
+nav a {
+  margin-right: 16px;
+}
