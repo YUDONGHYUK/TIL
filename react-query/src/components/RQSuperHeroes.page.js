@@ -1,5 +1,6 @@
 // fetch data using react-query
 
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
@@ -8,12 +9,21 @@ const fetchSuperHeroes = () => {
 };
 
 const RQSuperHeroesPage = () => {
+  const [interval, setInterval] = useState(3000);
+  console.log('interval : ', interval);
+
   const onSuccess = (data) => {
-    console.log('Perform side effect after data fetching', data);
+    if (data.data.length === 4) {
+      setInterval(false);
+    }
+    // console.log('Perform side effect after data fetching', data);
   };
 
   const onError = (error) => {
-    console.log('Perform side effect after encountering error', error);
+    if (error) {
+      setInterval(false);
+    }
+    // console.log('Perform side effect after encountering error', error);
   };
 
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
@@ -23,15 +33,15 @@ const RQSuperHeroesPage = () => {
       // staleTime: 30000,
       // refetchOnMount: false,
       // refetchOnWindowFocus: true,
-      // refetchInterval: 2000,
-      // refetchIntervalInBackground: true,
       // enabled: false,
+      refetchInterval: interval,
+      refetchIntervalInBackground: true,
       onSuccess,
       onError,
     }
   );
 
-  console.log({ isLoading, isFetching, isError });
+  console.log({ isLoading, isFetching });
 
   if (isFetching) {
     return <h2>Loading...</h2>;
