@@ -2,6 +2,7 @@ import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import HomePage from './components/Home.page';
+import ParallelQueriesPage from './components/ParallelQueries.page';
 import RQSuperHeroPage from './components/RQSuperHero.Page';
 import RQSuperHeroesPage from './components/RQSuperHeroes.page';
 import SuperHeroesPage from './components/SuperHeroes.page';
@@ -41,6 +42,7 @@ function App() {
             </ul>
           </nav>
           <Routes>
+            <Route path='/rq-parallel' element={<ParallelQueriesPage />} />
             <Route
               path='/rq-super-heroes/:heroId'
               element={<RQSuperHeroPage />}
