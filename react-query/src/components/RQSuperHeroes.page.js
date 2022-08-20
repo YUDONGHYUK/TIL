@@ -12,10 +12,12 @@ const RQSuperHeroesPage = () => {
     console.log('Perform side effect after encountering error');
   };
 
-  const { isLoading, data, isError, error, isFetching, refetch } =
-    useSuperHeroesData(onSuccess, onError);
+  const { data, isError, error, isFetching, refetch } = useSuperHeroesData(
+    onSuccess,
+    onError
+  );
 
-  console.log({ isLoading, isFetching });
+  // console.log({ isLoading, isFetching });
 
   if (isFetching) {
     return <h2>Loading...</h2>;
