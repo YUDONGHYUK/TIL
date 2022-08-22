@@ -2,6 +2,7 @@ import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import HomePage from './components/Home.page';
+import PaginatedQueriesPage from './components/PaginatedQueries.page';
 import DependentQueriesPage from './components/DependentQueries.page';
 import DynamicParallelPage from './components/DynamicParallel.page';
 import ParallelQueriesPage from './components/ParallelQueries.page';
@@ -44,6 +45,7 @@ function App() {
             </ul>
           </nav>
           <Routes>
+            <Route path='rq-paginated' element={<PaginatedQueriesPage />} />
             <Route
               path='/rq-dependent'
               element={<DependentQueriesPage email='doyu@example.com' />}
