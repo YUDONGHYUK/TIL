@@ -24,6 +24,16 @@
       "name": "Shazam",
       "alterEgo": "Billy Batson",
       "id": 5
+    },
+    {
+      "name": "Catwoman",
+      "alterEgo": "Selina Kyle",
+      "id": 6
+    },
+    {
+      "name": "Doyu",
+      "alterEgo": "Aron",
+      "id": 7
     }
   ],
   "friends": [
@@ -49,11 +59,7 @@
   "channel": [
     {
       "id": "doyu",
-      "courses": [
-        "react",
-        "javascript",
-        "typescript"
-      ]
+      "courses": ["react", "javascript", "typescript"]
     }
   ],
   "colors": [
