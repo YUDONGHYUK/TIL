@@ -33,6 +33,15 @@ describe('Calculator module', () => {
     expect(cal.value).toBe(3);
   });
 
+  it('add should throw an error if value is greater than 100', () => {
+    // 에러를 예상할 수 있는 코드를 작성하는 방법
+    // expect 안에 콜백 함수를 전달하면서 콜백 함수 안에서
+    // 에러가 던져지기를 에상하는 코드를 넣으면 된다.
+    expect(() => {
+      cal.add(101);
+    }).toThrow('Value can not be greater than 100');
+  });
+
   it('subtracts', () => {
     cal.subtract(1);
 
