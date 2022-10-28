@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './app';
+import App from './app/app.jsx';
 import '@fortawesome/fontawesome-free/js/all.js';
-import HanbitPresenter from './habit_presenter';
+import HanbitPresenter from './app/habit_presenter';
 
 const habitPresenter = new HanbitPresenter([
   { id: 1, name: 'Reading', count: 0 },
