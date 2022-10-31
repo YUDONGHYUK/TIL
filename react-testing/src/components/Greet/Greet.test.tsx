@@ -1,10 +1,21 @@
-import { render, screen } from '@testing-library/react';
+/**
+ * Greet 컴포넌트는 컴포넌트로 name을 건네받았을 경우에 hello를 렌더링해야한다.
+ * hello 뒤에 이름이 붙도록 렌더링 해야한다.
+ */
+
 import Greet from './Greet';
+import { render, screen } from '@testing-library/react';
 
 test('Greet renders correctly', () => {
   render(<Greet />);
   const textElement = screen.getByText('Hello');
 
-  // textElement 요소는 render 메소드에 의해 작성된 가상 DOM인 document에 있는가?
+  expect(textElement).toBeInTheDocument();
+});
+
+test('Greet renders with a name', () => {
+  render(<Greet name='Doyu' />);
+  const textElement = screen.getByText('Hello Doyu');
+
   expect(textElement).toBeInTheDocument();
 });
