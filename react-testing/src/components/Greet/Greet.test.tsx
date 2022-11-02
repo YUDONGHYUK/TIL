@@ -6,16 +6,20 @@
 import Greet from './Greet';
 import { render, screen } from '@testing-library/react';
 
-test('Greet renders correctly', () => {
-  render(<Greet />);
-  const textElement = screen.getByText('Hello');
+describe('Greet', () => {
+  test('renders correctly', () => {
+    render(<Greet />);
+    const textElement = screen.getByText('Hello');
 
-  expect(textElement).toBeInTheDocument();
+    expect(textElement).toBeInTheDocument();
+  });
 });
 
-test('Greet renders with a name', () => {
-  render(<Greet name='Doyu' />);
-  const textElement = screen.getByText('Hello Doyu');
+describe('Nested', () => {
+  test('renders a name', () => {
+    render(<Greet name='Doyu' />);
+    const textElement = screen.getByText('Hello Doyu');
 
-  expect(textElement).toBeInTheDocument();
+    expect(textElement).toBeInTheDocument();
+  });
 });
