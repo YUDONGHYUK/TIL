@@ -20,6 +20,9 @@ describe('Application', () => {
     const paragraphElement = screen.getByText('All fields are mandatory');
     expect(paragraphElement).toBeInTheDocument();
 
+    const imageElement = screen.getByAltText('a person with a laptop');
+    expect(imageElement).toBeInTheDocument();
+
     // using getByRole
     const nameElement = screen.getByRole('textbox', {
       name: 'Name',
@@ -35,6 +38,10 @@ describe('Application', () => {
     // using getByPlaceholderText
     const nameElement3 = screen.getByPlaceholderText('Fullname');
     expect(nameElement3).toBeInTheDocument();
+
+    // using getByDisplayValue
+    const nameElement4 = screen.getByDisplayValue('Doyu');
+    expect(nameElement4).toBeInTheDocument();
 
     const bioElement = screen.getByRole('textbox', {
       name: 'Bio',
