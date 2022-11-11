@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { SkillsProps } from './Skills.types';
 
 const Skills = ({ skills }: SkillsProps) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <>
       <ul>
@@ -8,6 +11,11 @@ const Skills = ({ skills }: SkillsProps) => {
           <li key={skill}>{skill}</li>
         ))}
       </ul>
+      {isLoggedIn ? (
+        <button>Start learning</button>
+      ) : (
+        <button onClick={() => setIsLoggedIn(true)}>Login</button>
+      )}
     </>
   );
 };
