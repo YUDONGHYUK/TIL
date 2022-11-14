@@ -1,12 +1,10 @@
-import Skills from './components/Skills/Skills';
+import Counter from './components/Counter/Counter';
 import './App.css';
 
 function App() {
-  const skills = ['HTML', 'CSS'];
-
   return (
     <div className='App'>
-      <Skills skills={skills} />
+      <Counter />
     </div>
   );
 }
