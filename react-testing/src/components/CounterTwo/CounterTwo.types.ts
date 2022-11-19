@@ -1,5 +1,5 @@
 export type CounterTowProps = {
-  count: number;
-  handleIncrement?: () => {};
-  handleDecrement?: () => {};
-};
+  count: number
+  handleIncrement?: () => {}
+  handleDecrement?: () => {}
+}

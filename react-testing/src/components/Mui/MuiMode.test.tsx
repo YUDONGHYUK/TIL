@@ -1,11 +1,11 @@
-import { render, screen } from '../../test-utils';
-import MuiMode from './MuiMode';
+import { render, screen } from '../../test-utils'
+import MuiMode from './MuiMode'
 
 describe('MuiMode', () => {
   test('renders text correctly', () => {
-    render(<MuiMode />);
+    render(<MuiMode />)
 
-    const headingElement = screen.getByRole('heading');
-    expect(headingElement).toHaveTextContent('dark mode');
-  });
-});
+    const headingElement = screen.getByRole('heading')
+    expect(headingElement).toHaveTextContent('dark mode')
+  })
+})
